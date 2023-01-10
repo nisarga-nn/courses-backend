@@ -14,7 +14,7 @@ app.use("*", (req, res) => {
   res.status(404).json({ msg: "Route does not exist" });
 });
 
-const PORT = 4000;
+const PORT = 4000
 
 app.listen(PORT, async () => {
   const { db } = await connection();
