@@ -9,12 +9,12 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/users", userRoutes);
-app.use("/courses",coursesRoutes)
+app.use("/courses", coursesRoutes);
 app.use("*", (req, res) => {
   res.status(404).json({ msg: "Route does not exist" });
 });
 
-const PORT = 4000
+const PORT = 4000;
 
 app.listen(PORT, async () => {
   const { db } = await connection();

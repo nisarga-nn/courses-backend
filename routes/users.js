@@ -54,7 +54,7 @@ router.post("/signup", async (req, res) => {
 
   const emailExists = await db.collection("users").findOne({ email: email });
   if (emailExists) {
-    return res.json({ message: "User already exists",isSuccess:false });
+    return res.json({ message: "User already exists", isSuccess: false });
   }
 
   const hashedPasswords = await bcrypt.hash(password, 10);
@@ -63,7 +63,7 @@ router.post("/signup", async (req, res) => {
   const user = await db
     .collection("users")
     .insertOne({ name, email, password: hashedPasswords });
-  return res.json({ message: "User registered" ,isSuccess:true});
+  return res.json({ message: "User registered", isSuccess: true });
 });
 
 module.exports = router;

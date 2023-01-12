@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-module.exports = async (req,res, next) => {
+module.exports = async (req, res, next) => {
   const token = await req.header("token");
   if (!token) {
     return res.send("Token not found");
@@ -12,7 +12,7 @@ module.exports = async (req,res, next) => {
     const verified = jwt.verify(token, secretkey);
     req.user = verified;
     next();
-  } catch (err){
-    return res.send({err});
+  } catch (err) {
+    return res.send({ err });
   }
 };
