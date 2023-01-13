@@ -72,7 +72,7 @@ router.get("/get/:id", verify, async (req, res) => {
   return res.json({ message: "Courses found", isSuccess: true, courseExists });
 });
 //Delete a course
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id", verify, async (req, res) => {
   const { db } = await connection();
   const id = req.params.id;
 
